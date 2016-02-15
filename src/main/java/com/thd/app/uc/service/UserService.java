@@ -25,7 +25,12 @@ public class UserService {
             return baseService.save(user);
         }
 
-        baseService.saveOrUpdate(user);
+        User oldUser = baseService.load(User.class, userId);
+        if (oldUser == null || StringUtils.isEmpty(oldUser.getUserId())) {
+            return userId;
+        }
+
+        baseService.update(user);
         return userId;
     }
 }

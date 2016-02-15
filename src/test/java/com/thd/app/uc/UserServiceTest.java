@@ -40,10 +40,13 @@ public class UserServiceTest {
 //        for (int i = 0; i < 50; i++) {
         String userId = UUID.randomUUID().toString().replace("-", "");
         User user = new User();
+        user.setUserId(userId);
         user.setCorpCode("ladeng.com");
         user.setUserName("陶发登");
         user.setLoginName("1807");
         user.setCreateUser(userId);
+        user.setGenderType(User.GenderType.MAN);
+        user.setEmployeeCode("1807");
         user.setCreateTime(new Date());
         user.setLastModifyUser(userId);
         user.setLastModifyTime(new Date());

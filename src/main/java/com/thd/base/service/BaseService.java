@@ -169,6 +169,10 @@ public class BaseService {
         this.getSession().saveOrUpdate(model);
     }
 
+    public void update(Object model) {
+        this.getSession().update(model);
+    }
+
     public String save(Object model) {
         return (String) this.getSession().save(model);
     }
@@ -228,7 +232,7 @@ public class BaseService {
                 query.setParameter(i, values[i]);
             }
         }
-        
+
         return (T) query.uniqueResult();
     }
 

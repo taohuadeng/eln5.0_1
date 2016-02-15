@@ -39,19 +39,27 @@ public class User extends BaseModel {
     /**
      * 登录账号
      */
-    @Column(length = 50)
+    @Column(nullable = false, length = 50)
     private String loginName;
 
     /**
      * 用户名
      */
-    @Column
+    @Column(nullable = false, length = 50)
     private String userName;
 
     /**
      * 工号
      */
+    @Column(nullable = false, length = 50)
     private String employeeCode;
+
+    /**
+     * 用户性别
+     */
+    @Column(nullable = false, length = 10)
+    @Enumerated(EnumType.STRING)
+    private GenderType genderType;
 
     public String getUserId() {
         return userId;
@@ -83,5 +91,13 @@ public class User extends BaseModel {
 
     public void setEmployeeCode(String employeeCode) {
         this.employeeCode = employeeCode;
+    }
+
+    public GenderType getGenderType() {
+        return genderType;
+    }
+
+    public void setGenderType(GenderType genderType) {
+        this.genderType = genderType;
     }
 }
